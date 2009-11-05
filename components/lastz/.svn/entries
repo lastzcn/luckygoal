@@ -1,0 +1,50 @@
+10
+
+dir
+26
+svn://192.168.1.223/LuckyGoal/trunk/components/lastz
+svn://192.168.1.223/LuckyGoal
+
+
+
+2009-10-15T23:43:24.799583Z
+25
+jwsu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+99075919-10f1-4f1f-87c8-0542bf8a1e6a
+
+build
+dir
+
+bld
+dir
+
+
+
+add
+
+include
+dir
+
+samples
+dir
+
+lib
+dir
+
+src
+dir
+

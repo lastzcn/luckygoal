@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+
+<makefile>
+
+    <!-- the following line tells Bakefile that this component uses the wxCode presets
+         (internally wxCode presets use in turn the wxWidgets presets)
+    -->
+    <include file="presets/zcode.bkl"/>
+
+    <!-- sets the name of the folder which contains this component and thus
+         should always be in lowercase, wxCode/component/MYCOMPONENT_NAME 
+    -->
+    <set-comp-name>luckygoal</set-comp-name>
+
+    <!-- A little macro to avoid redundancy -->
+    <template id="sub">
+        <dir>..$(DIRSEP)..$(DIRSEP)components$(DIRSEP)$(id)/bld</dir>
+        <dependency-of>all</dependency-of>
+    </template>
+
+    <subproject id="urlget" template="sub"/>
+    <subproject id="lastz" template="sub"/>
+
+    <exe id="luckygoal" >
+      <app-type>console</app-type>
+
+      <sources>$(COMP_SRC)</sources>
+      <headers>$(COMP_HDR)</headers>
+
+      <sys-lib>ucommon</sys-lib>
+      <sys-lib>bz2</sys-lib>
+      <sys-lib>boost_regex-mt</sys-lib>
+      
+      <zlike-component-common-lib />
+      
+      <zlike-component>urlget</zlike-component>
+      <sys-lib>curlpp</sys-lib>
+      <sys-lib>curl</sys-lib>
+
+      <zlike-component>lastz</zlike-component>
+      <sys-lib>iconv</sys-lib>
+
+    </exe>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- Additional utilities                                              -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <!-- Put here one or more of the following tags if you need them:
+
+            <make-tarball/>    => for adding a "tarball" target on your Unix
+                                  makefiles. Very very useful to make clean tarballs
+                                  of your component at release-time.
+
+            <make-zip>         => for adding a "zip" target on your Win makefiles.
+                                  Very very useful  to make clean zip archives
+                                  of your component at release-time.
+
+            <make-docs>        => for adding a "docs" target on your makefiles
+                                  which runs "doxygen" in yourCompFolder/docs
+    -->
+
+    <make-tarball/>
+    <make-zip/>
+    <make-docs/>
+
+</makefile>
